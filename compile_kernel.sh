@@ -23,14 +23,16 @@
 JERRICA_POSTFIX=$(date +"%Y%m%d")
 
 ## platform specifics
-export ARCH=arm
-export SUBARCH=arm
-TOOL_CHAIN_ARM=arm-eabi-
+export ARCH=arm64
+export SUBARCH=arm64
+#TOOL_CHAIN_ARM=arm-eabi-
+TOOL_CHAIN_ARM=aarch64-linux-android-
 
 #@@@@@@@@@@@@@@@@@@@@@@ DEFINITIONS BEGIN @@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ##### Tool-chain, you should get it yourself which tool-chain 
 ##### you would like to use
-KERNEL_TOOLCHAIN=/media/premaca/working/KERNEL_COMPILE/arm-eabi-4.8/bin/$TOOL_CHAIN_ARM
+#KERNEL_TOOLCHAIN=/media/premaca/working/KERNEL_COMPILE/arm-eabi-4.8/bin/$TOOL_CHAIN_ARM
+KERNEL_TOOLCHAIN=/home/premaca/device_repos/aarch64-linux-android-4.9/bin/$TOOL_CHAIN_ARM
 
 ## This script should be inside the kernel-code directory
 KERNEL_DIR=$PWD
@@ -125,9 +127,9 @@ if [ "$CLEAN_BUILD" == 'YES' ]
         echo "***************!!!!!  BUILDING CLEAN  !!!!!********************"
         echo "***************************************************************"
         echo;
-        exec_command make clean
-        exec_command make mrproper
-        make ARCH=$ARCH CROSS_COMPILE=$TOOL_CHAIN_ARM  $KERNEL_DEFCONFIG
+	#exec_command make clean
+        #exec_command make mrproper
+        #make ARCH=$ARCH CROSS_COMPILE=$TOOL_CHAIN_ARM  $KERNEL_DEFCONFIG
 fi
 
 
